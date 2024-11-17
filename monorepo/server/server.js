@@ -1,28 +1,30 @@
-import dotenv from "dotenv";
-import express from "express";
-import applyRoutes from "./routes/_routes.js";
-import path from "path";
-import { fileURLToPath } from "url";
+require("dotenv").config();
+const express = require("express");
+const cors = require("cors");
+const applyRoutes = require("./routes/_routes.js");
+const path = require("path");
+const { fileURLToPath } = require("url");
 
 // Directories
-const currentDirectory = path.dirname(fileURLToPath(import.meta.url));
-const rootDirectory = path.join(currentDirectory, "..");
-const distDirectory = path.join(rootDirectory, "client", "dist");
+
 
 // Configure environment variables
 dotenv.config();
 
 const app = express();
 
+// Use cors middleware
+app.use(cors());
+
 // Apply routes
 applyRoutes(app);
 
 // Serve static files from the 'client/dist' directory
-app.use(express.static(distDirectory));
+app.use(express.static("client/dist"));
 
 // Catch-all route to serve index.html for SPA routing (e.g., for Vue Router)
 app.get("*", (req, res) => {
-	res.sendFile(path.join(distDirectory, "index.html"));
+	res.sendFile(path.join("client/dist", "index.html"));
 });
 
 // Start the server on the port Heroku provides or 3000
