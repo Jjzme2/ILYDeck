@@ -1,5 +1,6 @@
 import dotenv from "dotenv";
 import express from "express";
+import cors from "cors";
 import applyRoutes from "./routes/_routes.js";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -13,6 +14,9 @@ const distDirectory = path.join(rootDirectory, "client", "dist");
 dotenv.config();
 
 const app = express();
+
+// Use cors middleware
+app.use(cors());
 
 // Apply routes
 applyRoutes(app);
