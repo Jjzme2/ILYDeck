@@ -1,10 +1,14 @@
 {
   "name": "ilydeck",
+  "type": "module",
   "version": "0.0.1",
-  "description": "REWRITE LATER****************************************",
+  "description": "ILYDeck is an innovative web application that brings the joy of card games to life. Play a variety of classic and custom card games, designed and curated for endless entertainment. Whether you're mastering familiar favorites or exploring unique new creations, ILYDeck offers a versatile, engaging platform for card game enthusiasts",
   "main": "server/server.js",
   "scripts": {
-    "start": "nodemon server/server.js",
+    "client": "cd client && vite",
+    "server": "nodemon server/server.js",
+    "buildDev": "cd client && vite build",
+    "buildAndRun": "npm run buildDev && cd .. && node server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "ILYTAT Games",
