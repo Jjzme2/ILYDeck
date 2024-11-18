@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container v-small no-border no-shadow" style="float: left">
-      <!-- <img src="/images/logo.png" alt="logo" class="icon" /> -->
+      <img src="/images/logo.png" alt="logo" class="icon" />
     </div>
 
     <button @click="toggleNav" class="button primary no-padding" style="float: right; width: 15%">
@@ -24,6 +24,15 @@
   <div :class="{ 'is-visible': isNavVisible }">
     <navigationPanel v-if="isNavVisible" :routes="customRoutes"></navigationPanel>
   </div>
+
+  <nav>
+    <ul>
+      <li><router-link to="/">Home</router-link></li>
+      <li><router-link to="/games">Games</router-link></li>
+      <li><router-link to="/about">About</router-link></li>
+      <li><router-link to="/contact">Contact</router-link></li>
+    </ul>
+  </nav>
 </template>
 
 <script>
