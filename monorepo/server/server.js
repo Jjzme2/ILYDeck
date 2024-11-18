@@ -18,6 +18,24 @@ const app = express();
 // Use cors middleware
 app.use(cors());
 
+// Global error handler
+app.use((err, req, res, next) => {
+  console.error('Global Error:', err);
+  res.status(500).send('Internal Server Error');
+});
+
+// Global validation function
+const validateRequestParams = (req, res, next) => {
+  const params = req.params;
+  if (!params || typeof params !== 'object') {
+    console.error('Invalid request parameters');
+    return res.status(400).send('Invalid request parameters');
+  }
+  next();
+};
+
+app.use(validateRequestParams);
+
 // Apply routes
 applyRoutes(app);
 

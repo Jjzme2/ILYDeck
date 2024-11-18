@@ -6,20 +6,46 @@ class CardUtils {
     }
   }
 
+  validateCards(cards) {
+    if (!Array.isArray(cards) || cards.length === 0) {
+      throw new Error('Invalid cards array');
+    }
+  }
+
+  validateAmountToDraw(amountToDraw) {
+    if (typeof amountToDraw !== 'number' || amountToDraw <= 0) {
+      throw new Error('Invalid amount to draw');
+    }
+  }
+
   draw(cards, amountToDraw = 1) {
-	return cards.splice(0, amountToDraw);
+    try {
+      this.validateCards(cards);
+      this.validateAmountToDraw(amountToDraw);
+      return cards.splice(0, amountToDraw);
+    } catch (error) {
+      console.error('Error drawing cards:', error);
+      return [];
+    }
   }
 
   drawFromBottom(cards, amountToDraw = 1) {
-	return cards.splice(cards.length - amountToDraw, amountToDraw);
+    try {
+      this.validateCards(cards);
+      this.validateAmountToDraw(amountToDraw);
+      return cards.splice(cards.length - amountToDraw, amountToDraw);
+    } catch (error) {
+      console.error('Error drawing cards from bottom:', error);
+      return [];
+    }
   }
 
   deal(cards, players, amountPerPlayer) {
-	let currentPlayer = 0;
-	while (cards.length > 0) {
-	  players[currentPlayer].hand.push(...this.draw(cards, amountPerPlayer));
-	  currentPlayer = (currentPlayer + 1) % players.length;
-	}
+    let currentPlayer = 0;
+    while (cards.length > 0) {
+      players[currentPlayer].hand.push(...this.draw(cards, amountPerPlayer));
+      currentPlayer = (currentPlayer + 1) % players.length;
+    }
   }
 }
 

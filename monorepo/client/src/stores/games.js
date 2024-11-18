@@ -8,12 +8,15 @@ export const useGameStore = defineStore('gameStore', {
   actions: {
     async fetchAll() {
       try {
-        const link = 'api/games'
+        const link = 'api/games';
+        if (typeof link !== 'string' || !link.trim()) {
+          throw new Error('Invalid link');
+        }
         const data = await baseApi.getResponse(link);
-		if(data.length === 0){
-			console.log('No games found');
-			return;
-		}
+        if (data.length === 0) {
+          console.log('No games found');
+          return;
+        }
         this.items = data;
       } catch (error) {
         console.error('Error fetching games:', error);
