@@ -1,3 +1,33 @@
 p {
 	font-size: medium;
 }
+
+.home-section {
+  margin-bottom: 20px;
+}
+
+.cta-button {
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.cta-button:hover {
+  background-color: #e64a19;
+}
+
+.popular-games {
+  list-style-type: none;
+  padding: 0;
+}
+
+.popular-games li {
+  background-color: #f5f5f5;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+}
