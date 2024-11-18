@@ -2,6 +2,7 @@ import StandardPlayingDeck from "../decks/standardPlayingDeck";
 
 class SlapJack {
   constructor(playerNames = ["Player 1", "Player 2"]) {
+    this.validatePlayerNames(playerNames);
     this.deck = new StandardPlayingDeck();
     this.deck.createDeck();
     this.deck.shuffle(); // Assuming StandardPlayingDeck has a shuffle method
@@ -15,6 +16,17 @@ class SlapJack {
     this.gameOver = false;
 
     this.dealCards();
+  }
+
+  validatePlayerNames(playerNames) {
+    if (!Array.isArray(playerNames) || playerNames.length < 2) {
+      throw new Error("Invalid player names: must be an array with at least two names");
+    }
+    playerNames.forEach((name) => {
+      if (typeof name !== "string" || !name.trim()) {
+        throw new Error(`Invalid player name: ${name}`);
+      }
+    });
   }
 
   /**

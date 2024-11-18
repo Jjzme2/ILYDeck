@@ -1,9 +1,7 @@
-// ! Used as an example
-// import productRoutes from "./productRoutes.js";
+import gameRoutes from './gameRoutes.js';
 
 const applyRoutes = (app) => {
-	// ! Used as an example
-	// app.use("/api/products", productRoutes);
+  app.use('/api/games', gameRoutes);
 };
 
 export default applyRoutes;
