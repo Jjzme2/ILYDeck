@@ -15,3 +15,4 @@
 | Vite | Next generation frontend tooling     | <https://vite.dev/> |
 | Vue  | The Progressive JavaScript Framework | <https://vuejs.org/>  |
 | Pinia | Intuitive, type safe, light and flexible Store for Vue 3 | <https://pinia.vuejs.org/getting-started.html> |
+| Axios | Promise based HTTP client for the browser and node.js | <https://axios-http.com/> |

@@ -8,20 +8,13 @@
       <section>
         <GameLibrary />
       </section>
-      <section>
-        <h3>Deck of Cards</h3>
-        <ul>
-          <li v-for="card in deck" :key="card.getCardName()">{{ card.getCardName() }}</li>
-        </ul>
-      </section>
     </template>
   </BaseView>
 </template>
 
 <script>
 import BaseView from './BaseView.vue'
-import GameLibrary from '../components/GameLibrary.vue'
-import StandardPlayingDeck from '../../server/models/standardPlayingDeck.js'
+import GameLibrary from '../components/app/mainElements/libraries/GameLibrary.vue'
 
 export default {
   name: 'GameView',
@@ -30,25 +23,6 @@ export default {
     GameLibrary
   },
   data() {
-    return {
-      deck: []
-    }
   },
-  methods: {
-    createDeck() {
-      const newDeck = new StandardPlayingDeck();
-      newDeck.createDeck();
-      this.deck = newDeck.cards;
-    }
-  },
-  created() {
-    this.createDeck();
-  }
 }
 </script>
-
-<style scoped>
-.game-interface {
-  /* Add styles for the game interface here */
-}
-</style>

@@ -12,7 +12,7 @@
           <br />
           <router-link to="/terms" aria-label="Terms and Conditions">Terms and Conditions</router-link>
         </div>
-        <div>
+        <!-- <div>
           <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
             <img src="/images/facebook-icon.png" alt="Facebook" />
           </a>
@@ -22,7 +22,7 @@
           <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
             <img src="/images/instagram-icon.png" alt="Instagram" />
           </a>
-        </div>
+        </div> -->
       </div>
     </div>
 

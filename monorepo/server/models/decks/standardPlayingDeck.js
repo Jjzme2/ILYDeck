@@ -1,4 +1,5 @@
 import PlayingCard from '../cards/playingCard';
+import CardUtils from '../../utils/CardUtils';
 
 class StandardPlayingDeck {
   constructor() {
@@ -13,6 +14,10 @@ class StandardPlayingDeck {
         this.cards.push(new PlayingCard(suit, rank));
       });
     });
+  }
+
+  shuffle() {
+	CardUtils.shuffle(this.cards);
   }
 }
 
