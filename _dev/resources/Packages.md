@@ -12,5 +12,6 @@
 
 | Name | Description                          | URL                   |
 | ---- | ------------------------------------ | --------------------- |
-| Vite | Next generation frontend tooling     | <https://vitejs.dev/> |
+| Vite | Next generation frontend tooling     | <https://vite.dev/> |
 | Vue  | The Progressive JavaScript Framework | <https://vuejs.org/>  |
+| Pinia | Intuitive, type safe, light and flexible Store for Vue 3 | <https://pinia.vuejs.org/getting-started.html> |
